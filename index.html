@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d1c">
+  <meta name="description" content="NovaStria Panel - pemesanan panel Pterodactyl untuk game, bot, dan aplikasi.">
+  <title>NovaStria Panel — Hosting Panel</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">N</span><span>NovaStria <b>Panel</b><small>GAME • BOT • APP HOSTING</small></span></a>
+    <nav><a href="#paket">Paket</a><a href="#cara">Cara Pesan</a><a href="#faq">FAQ</a></nav>
+    <a class="nav-cta" href="#pesan">Pesan Panel <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-copy">
+        <div class="eyebrow"><i></i> PANEL HOSTING • ORDER MANUAL</div>
+        <h1>Server kamu.<br><span>Aturan kamu.</span></h1>
+        <p>Panel untuk menjalankan bot, aplikasi, dan server game yang didukung. Pilih paket, isi formulir, lalu admin akan memproses pesanan setelah pembayaran terverifikasi.</p>
+        <div class="hero-actions"><a class="btn primary" href="#paket">Lihat Paket <span>↓</span></a><a class="btn ghost" href="#cara">Cara pemesanan</a></div>
+        <div class="trust-row"><span>✓ Proses oleh admin</span><span>✓ Pilih resource</span><span>✓ Bantuan pemesanan</span></div>
+      </div>
+      <div class="hero-card">
+        <div class="window-head"><span></span><span></span><span></span><label>NOVASTRIA / SERVER OVERVIEW</label></div>
+        <div class="server-status"><div class="server-icon">⌘</div><div><b>Server Workspace</b><small>Panel provisioning • manual review</small></div><em><i></i> ORDER READY</em></div>
+        <div class="metric-grid"><div><small>RAM PLAN</small><strong>1–10 <small>GB</small></strong></div><div><small>PROVISIONING</small><strong>Admin</strong></div><div><small>DELIVERY</small><strong>Manual</strong></div><div><small>SUPPORT</small><strong>WhatsApp</strong></div></div>
+        <div class="fake-terminal"><p><span>$</span> nova order --review</p><p class="muted">Menunggu verifikasi pembayaran...</p><p><span>✓</span> Server dibuat setelah pembayaran valid</p><div class="terminal-bar"><i></i></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="paket">
+      <div class="section-heading"><div><div class="eyebrow">PILIH RESOURCE</div><h2>Paket panel</h2><p>Pilih kapasitas sesuai kebutuhan aplikasi. Harga berikut dapat kamu ubah di <code>assets/app.js</code>.</p></div><span class="section-tag">ORDER MANUAL</span></div>
+      <div class="filters" role="group" aria-label="Filter paket"><button class="filter active" data-filter="all">Semua</button><button class="filter" data-filter="bot">Bot & aplikasi</button><button class="filter" data-filter="game">Game server</button></div>
+      <div class="products" id="products"></div>
+      <p class="fineprint">Ketersediaan paket, CPU, disk, lokasi, dan software bergantung pada resource serta konfigurasi server admin. “Unlimited” bukan berarti resource fisik tanpa batas.</p>
+    </section>
+
+    <section class="section feature-section" id="cara">
+      <div class="section-heading"><div><div class="eyebrow">LANGKAH SEDERHANA</div><h2>Cara pemesanan</h2><p>Panel dibuat manual oleh admin setelah pembayaran berhasil diverifikasi.</p></div></div>
+      <div class="steps">
+        <article><span>01</span><h3>Pilih paket</h3><p>Tentukan RAM dan jenis penggunaan yang kamu butuhkan.</p></article>
+        <article><span>02</span><h3>Kirim formulir</h3><p>Isi identitas dan kontak aktif. Ringkasan order akan dibuat untuk dikirim ke admin.</p></article>
+        <article><span>03</span><h3>Bayar & verifikasi</h3><p>Admin mengirim instruksi pembayaran. Jangan mengirim bukti atau data rahasia di halaman publik.</p></article>
+        <article><span>04</span><h3>Panel dibuat</h3><p>Setelah pembayaran terverifikasi, admin membuat server dan mengirim akses secara pribadi.</p></article>
+      </div>
+    </section>
+
+    <section class="order-section" id="pesan">
+      <div class="order-intro"><div class="eyebrow">MULAI ORDER</div><h2>Pesan panel kamu.</h2><p>Formulir ini menyiapkan ringkasan pesanan. Tidak ada pembayaran otomatis atau pembuatan server otomatis.</p><div class="secure-note"><span>◈</span><div><b>Proses manual yang jelas</b><small>Admin memeriksa ketersediaan dan mengonfirmasi harga akhir sebelum pembayaran.</small></div></div></div>
+      <form class="order-form" id="orderForm">
+        <div class="form-title"><span>FORM ORDER</span><span class="step-pill">01 / 01</span></div>
+        <label>Nama / username <input name="customer" required maxlength="60" placeholder="Nama kamu"></label>
+        <label>Email aktif <input name="email" type="email" required maxlength="120" placeholder="nama@email.com"></label>
+        <label>WhatsApp aktif <input name="whatsapp" required maxlength="25" placeholder="08xxxxxxxxxx"></label>
+        <div class="form-grid">
+          <label>Paket panel <select name="package" id="packageSelect" required></select></label>
+          <label>Jenis penggunaan <select name="use" required><option value="Bot WhatsApp">Bot WhatsApp</option><option value="Bot Discord/Telegram">Bot Discord/Telegram</option><option value="Minecraft / game">Minecraft / game</option><option value="Node.js / Python / aplikasi">Node.js / Python / aplikasi</option><option value="Lainnya">Lainnya (konfirmasi admin)</option></select></label>
+        </div>
+        <label>Catatan kebutuhan <textarea name="notes" rows="3" maxlength="500" placeholder="Contoh: ingin menjalankan bot Node.js. Jangan masukkan password atau token."></textarea></label>
+        <div class="order-summary"><span>Harga paket</span><strong id="selectedPrice">Pilih paket</strong><small>Harga akhir dan ketersediaan dikonfirmasi admin sebelum pembayaran.</small></div>
+        <button class="btn primary submit-btn" type="submit">Buat Ringkasan Pesanan <span>↗</span></button>
+        <p class="form-foot">Dengan mengirim formulir, kamu setuju dihubungi admin terkait pesanan ini.</p>
+      </form>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="section-heading"><div><div class="eyebrow">INFO SEBELUM ORDER</div><h2>Pertanyaan umum</h2></div></div>
+      <div class="faq-list">
+        <details><summary>Apakah panel langsung aktif otomatis?</summary><p>Belum. Pesanan diperiksa admin, pembayaran diverifikasi, lalu server dibuat manual dan akses dikirim secara pribadi.</p></details>
+        <details><summary>Apakah semua bot dan game didukung?</summary><p>Tidak selalu. Dukungan bergantung pada Docker image, konfigurasi server, port, dan resource yang tersedia. Konfirmasi dulu jika aplikasi khusus.</p></details>
+        <details><summary>Apakah paket Unlimited benar-benar tanpa batas?</summary><p>Tidak ada resource fisik yang benar-benar tanpa batas. Paket ini hanya boleh ditawarkan jika admin menjelaskan batas RAM, CPU, disk, dan kebijakan penggunaan secara jelas.</p></details>
+        <details><summary>Kapan saya membayar?</summary><p>Tunggu konfirmasi admin mengenai ketersediaan, harga akhir, durasi paket, dan instruksi pembayaran. Jangan membayar ke rekening yang tidak dikonfirmasi.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">N</span><span>NovaStria <b>Panel</b><small>GAME • BOT • APP HOSTING</small></span></a><p>© <span id="year"></span> NovaStria Panel. Semua pesanan diproses secara manual.</p><a href="#pesan">Mulai order ↑</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="assets/app.js"></script>
+</body>
+</html>
